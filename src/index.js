@@ -6,18 +6,18 @@ import "./cron/cron.js"
 
 const app = express()
 
-app.use(express.json()) //Pasamos el texto que nos envia en objeto reconocible por JS (JSON)
+app.use(express.json())
 app.use(morgan("dev"))
 app.use("/users", router)
-
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-  console.log("Server is running")
-})
 
 app.get("/", (req, res) => {
   res.json({
     status: "OK",
   })
+})
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+  console.log("Server is running")
 })
