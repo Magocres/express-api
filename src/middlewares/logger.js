@@ -1,0 +1,4 @@
+export const log = (req, res, next) => {
+  console.log("Esto es un middleware")
+  next()
+}
