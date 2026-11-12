@@ -20,18 +20,3 @@ app.get("/", (req, res) => {
     status: "OK",
   })
 })
-
-app.post("/:id", (req, res) => {
-  console.log(req.body)
-  res.json("Usuario creado")
-})
-
-app.put("/:id", (req, res) => {
-  console.log(req.params.id)
-  res.json("Usuario actualizado")
-})
-
-app.delete("/:id", (req, res) => {
-  console.log(req.params.id)
-  res.json("Usuario eliminado")
-})
