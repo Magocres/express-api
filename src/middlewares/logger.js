@@ -4,6 +4,8 @@ export const log = (req, res, next) => {
 }
 
 export const log2 = (req, res, next) => {
-  console.log("Esto es el segundo middleware")
+  const timestamp = new Date().toLocaleTimeString()
+
+  console.log(timestamp)
   next()
 }
