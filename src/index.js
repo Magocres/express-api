@@ -10,8 +10,8 @@ app.use(express.json()) //Pasamos el texto que nos envia en objeto reconocible p
 app.use(morgan("dev"))
 app.use("/users", router)
 
-cron.schedule("0 8 * * *", () => {
-  console.log("Buenos días! Son las 08:00")
+cron.schedule("* * * * *", () => {
+  console.log("Buenos días!")
 })
 
 const PORT = process.env.PORT || 3000
