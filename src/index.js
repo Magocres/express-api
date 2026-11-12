@@ -1,6 +1,6 @@
 import express from "express"
 import morgan from "morgan"
-import { log } from "./middlewares/logger.js"
+import { log, log2 } from "./middlewares/logger.js"
 import router from "./routes/user.routes.js"
 
 const app = express()
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   })
 })
 
-app.get("/users", log, (req, res) => {
+app.get("/users", log2, (req, res) => {
   res.status(201).json("Todos los usuarios")
 })
 
