@@ -2,6 +2,7 @@ import express from "express"
 import morgan from "morgan"
 import { log, log2 } from "./middlewares/logger.js"
 import router from "./routes/user.routes.js"
+import "./cron/cron.js"
 
 const app = express()
 
