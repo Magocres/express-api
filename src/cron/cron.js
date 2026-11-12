@@ -27,7 +27,7 @@ const members = [
 export const cronado = cron.schedule("* * * * *", () => {
   members.forEach(member => {
     console.log(
-      `El miembro ${member.name} expira el: ${member.membershipExpires}`,
+      `El miembro ${member.name} expira el: ${new Date(member.membershipExpires)}`,
     )
   })
 })
