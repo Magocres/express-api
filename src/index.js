@@ -5,9 +5,14 @@ import router from "./routes/index.js"
 import "./cron/cron.js"
 import { dbConnection } from "./config/db.js"
 
+const PORT = process.env.PORT || 3000
+
 dbConnection()
   .then(() => {
-    console.log("Todo bien, estas conectado")
+    console.log("DB Connected")
+    app.listen(PORT, () => {
+      console.log("Server is running")
+    })
   })
   .catch(error => {
     console.error("Error:", error)
@@ -23,10 +28,4 @@ app.get("/", (req, res) => {
   res.json({
     status: "OK",
   })
-})
-
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-  console.log("Server is running")
 })
