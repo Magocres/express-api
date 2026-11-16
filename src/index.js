@@ -15,7 +15,7 @@ dbConnection()
     })
   })
   .catch(error => {
-    console.error("Error:", error)
+    throw new Error("Error")
   })
 
 const app = express()
