@@ -1,7 +1,18 @@
-export const register = (req, res) => {
-  resizeBy.json("Usuario registrado")
+import User from "../models/user.model.js"
+
+export async function register(req, res) {
+  const { email, password } = req.body
+  try {
+    await User.create({
+      email,
+      password,
+    })
+    res.status(201).json("Creado")
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export const login = (req, res) => {
-  resizeBy.json("Usuario logeado")
+  req.json("Usuario logeado")
 }
