@@ -6,12 +6,12 @@ export async function register(req, res) {
   try {
     const hasedPassword = await bycript.hash(password, 10)
 
-    await User.create({
+    const user = await User.create({
       email,
       password: hasedPassword,
     })
 
-    res.status(201).json("Creado")
+    res.status(201).json(user)
   } catch (error) {
     console.log(error)
   }
