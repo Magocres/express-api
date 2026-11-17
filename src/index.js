@@ -5,14 +5,12 @@ import router from "./routes/index.js"
 import "./cron/cron.js"
 import { dbConnection } from "./config/db.js"
 
-// 1. PRIMERO inicializamos Express y los middlewares
 const app = express()
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: true })) // <-- Añadido para mayor compatibilidad
+app.use(express.urlencoded({ extended: true }))
 app.use(morgan("dev"))
 
-// Rutas
 app.use("/", router)
 
 app.get("/", (req, res) => {
@@ -21,7 +19,6 @@ app.get("/", (req, res) => {
   })
 })
 
-// 2. DESPUÉS conectamos a la BD y levantamos el servidor
 const PORT = process.env.PORT || 3000
 
 dbConnection()

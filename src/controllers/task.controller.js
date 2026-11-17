@@ -1,6 +1,6 @@
-import Task from "../model/task.model.js"
+import Task from "../models/task.model.js"
 
-export async function createTask(req, res) {
+export async function createTasks(req, res) {
   try {
     const { title, description, completed } = req.body
 
@@ -25,14 +25,15 @@ export async function createTask(req, res) {
 
 export async function getTasks(req, res) {
   try {
-    const tasks = await Task.find({ user: req.user.id })
+    const tasks = await Task.find()
     return res.json(tasks)
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ error: "Error interno del servidor" })
   }
 }
 
-export async function deleteTask(req, res) {
+export async function deleteTasks(req, res) {
   try {
     const { id } = req.params
 
